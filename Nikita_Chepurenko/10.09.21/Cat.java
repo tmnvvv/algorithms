@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Cat {
     private final float BASE_WEIGHT;  // Начальный вес записываем в константу для дальнейших операций
-    private final int QUANTITY_OF_EYES; // Кол-во глаз кота, запиываем в константу
-    private final float CRITICAL_MAX_WEIGHT = 20; // Критический максимальный вес, запиываем в константу
+    private final int QUANTITY_OF_EYES; // Кол-во глаз кота, записываем в константу
+    private final float CRITICAL_MAX_WEIGHT = 20; // Критический максимальный вес, записываем в константу
     private final float CRITICAL_MIN_WEIGHT = 1; // Критический минимальный вес, записываем в константу
     private final int CRITICAL_MEOW_CAT = 10; // Критический "мяв" кошки/кота
 
@@ -43,11 +43,26 @@ public class Cat {
         this.QUANTITY_OF_EYES = quantityOfEyes;
     }
 
+    public Cat (String name, float weight, int quantityOfEyes,
+                int countOfMeow, Colors color, boolean colorChose,
+                boolean alive) {
+        Cat.count += 1;
+        this.NAME = name + Cat.count;
+        this.weight = weight/1000;
+        this.BASE_WEIGHT = weight/1000;
+        this.QUANTITY_OF_EYES = quantityOfEyes;
+        this.countOfMeow = countOfMeow;
+        this.colorChose = colorChose;
+        this.color = (!this.colorChose ? this.COLOR : color);
+        this.alive = alive;
+    }
+
     public Cat deepCopy () {
         /*
         Конструктор глубокого копирования.
          */
-        return new Cat(this.NAME, this.weight, this.QUANTITY_OF_EYES);
+        return new Cat(this.NAME, this.weight*1000, this.QUANTITY_OF_EYES,
+                       this.countOfMeow, this.color, this.colorChose, this.alive);
     }
 
     public static void getCount () {
@@ -75,8 +90,6 @@ public class Cat {
             System.out.println("Вы перекормили " + NAME + "а" + " он умер.");
             catDie();
             return;
-        } else {
-            setAlive(true);
         }
         countFood += food;
         weight += food/1000;
@@ -100,8 +113,6 @@ public class Cat {
             System.out.println("Вы замяукали " + NAME + "а" + " он умер.");
             catDie();
             return;
-        } else {
-            setAlive(true);
         }
         countOfMeow += 1;
         System.out.println(NAME + " Мяукнул!!!");
@@ -117,8 +128,6 @@ public class Cat {
             System.out.println(NAME + "а" + " потерял весь вес и умер.");
             catDie();
             return;
-        } else {
-            setAlive(true);
         }
         weight -= Math.random();
         if (weight < 0) { weight = 0; }
