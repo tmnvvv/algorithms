@@ -5,20 +5,49 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
+        while (true) {
+            System.out.println("");
+            System.out.println("1.Моя первая задача.");
+            System.out.println("2.Моя вторая задача.");
+            System.out.println("3.Моя третья задача.");
+            System.out.println("0.Выход.");
+            System.out.println("Введите номер задачи:");
+            System.out.print("> ");
+            int index = scanner.nextInt();
+            switch (index) {
+                case 0: {
+                    System.exit(1);
+                    break;
+                }
+                case 1: {
+                    task1();
+                    break;
+                }
+                case 2: {
+                    task2();
+                    break;
+                }
+                case 3: {
+                    task3();
+                    break;
+                }
+                default: {
+                    System.out.println("Такой задачи нет!");
+                    break;
+                }
+            }
+        }
     }
 
     public static void task1() {
-        Scanner s = new Scanner(System.in);
         ArrayList<String> stringArray = new ArrayList();
         String userString;
 
         do {
-            userString = s.nextLine();
+            userString = scanner.nextLine();
             stringArray.add(userString);
         } while(!userString.equals("end"));
 
@@ -26,16 +55,15 @@ public class Main {
 
         String allStrings = String.join("%n", stringArray);
 
-        System.out.printf(allStrings);
+        System.out.printf(allStrings + "%n");
     }
 
     public static void task2() {
-        Scanner s = new Scanner(System.in);
         String[] stringArray = new String[10];
 
         for (int i = 0; i < 5; i++) {
             System.out.print(i + ": ");
-            stringArray[i] = s.nextLine();
+            stringArray[i] = scanner.nextLine();
         }
 
         Main.doubleValues(stringArray);
@@ -44,10 +72,8 @@ public class Main {
     }
 
     public static void task3() {
-        Scanner s = new Scanner(System.in);
-
         System.out.print("Сколько будет введено целых чисел? : ");
-        System.out.println("Минимальное число: " + Main.getMinimum(Main.getIntegerList(s.nextInt(), s)));
+        System.out.println("Минимальное число: " + Main.getMinimum(Main.getIntegerList(scanner.nextInt(), scanner)));
     }
 
     public static LinkedList<Integer> getIntegerList(Integer numberOfNumbers, Scanner scanner) {
@@ -59,7 +85,10 @@ public class Main {
 
             userNumber = scanner.nextInt();
 
-            if ((userNumber & 1) != 0) { System.out.println("Вы ввели нечётное число."); System.exit(0); }
+            if ((userNumber & 1) != 0) {
+                System.out.println("Вы ввели нечётное число.");
+                System.exit(0);
+            }
 
             numbersList.add(userNumber);
         }
