@@ -1,6 +1,12 @@
-//Main.java
+// Задачи про кошек
 package hi;
- 
+
+
+ /* моя Intellij не создает автоматически информацию о проекте :(
+   пожалуйста, подскажите как включить
+*/
+
+
 public class Main {
  
     public static void main(String[] args) {
@@ -18,14 +24,11 @@ public class Main {
         Cat.create();
         Cat.meow();
  
-//        System.out.println("Вес первой кошки: " + cat.weight);
-//        System.out.println("Вес второй кошки: " + cat2.weight);
+       System.out.println("Вес первой кошки: " + cat.weight);
+       System.out.println("Вес второй кошки: " + cat2.weight);
     }
 }
- 
-//Cat.java
-package hi;
- 
+
 public class Cat {
     public static int count = 0;
     public static double weight = 1;
