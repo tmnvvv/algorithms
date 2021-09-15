@@ -1,10 +1,10 @@
 package com.company;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         NotMainNew tasks = new NotMainNew();
         System.out.println("Выполняется задание 1");
         tasks.taskNumberOne();
@@ -18,7 +18,7 @@ public class Main {
     }
 }
 class NotMainNew {
-    public void taskNumberOne() throws IOException {
+    public void taskNumberOne() {
         /*
         Задача №1
         Вводить с клавиатуры строки, пока пользователь не введёт строку 'end':
@@ -27,10 +27,10 @@ class NotMainNew {
         3. Вводить с клавиатуры строки, пока пользователь не введёт строку "end". "end" не учитывать.
         4. Вывести строки на экран, каждую с новой строки.
          */
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        Scanner input = new Scanner(System.in);
         ArrayList<String> array = new ArrayList<String>();
         while (true) {
-            String s = input.readLine();
+            String s = input.nextLine();
             if (s.equals("end"))
                 break;
             array.add(s);
@@ -39,7 +39,7 @@ class NotMainNew {
             System.out.println(let);
         }
     }
-    public void taskNumberTwo() throws IOException {
+    public void taskNumberTwo() {
         /*
          Задание 2
         Используя коллекцию удвойте слово:
@@ -47,10 +47,10 @@ class NotMainNew {
         2. Метод doubleValues должен удваивать слова по принципу a,b,c -> a,a,b,b,c,c.
         3. Используя цикл for выведите результат на экран, каждое значение с новой строки.
          */
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        Scanner input = new Scanner(System.in);
         ArrayList<String> array = new ArrayList<String>();
         for (int i = 0; i < 5; i++) {
-            String s = input.readLine();
+            String s = input.nextLine();
             array.add(s);
         }
         ArrayList<String> newArray = new ArrayList<String>();
@@ -62,7 +62,7 @@ class NotMainNew {
             System.out.printf("%s, ", let);
         }
     }
-    public void taskNumberThree() throws IOException {
+    public void taskNumberThree() {
         /*
         Задание 3
         Минимальное из N чисел(использовать LinkedList):
@@ -70,16 +70,16 @@ class NotMainNew {
         2. Считать N целых чисел и заполнить ими список - метод getIntegerList.
         3. Найти минимальное число среди элементов списка - метод getMinimum.
         */
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(input.readLine());
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
         int []array = getIntegerList(n);
         System.out.println("Minimum: " + this.getMinimum(array));
     }
-    public int[] getIntegerList(int n) throws IOException{
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    public int[] getIntegerList(int n) {
+        Scanner input = new Scanner(System.in);
         int []array = new int[n];
         for (int i = 0; i < array.length; i++) {
-            array[i] = Integer.parseInt(input.readLine());
+            array[i] = Integer.parseInt(input.nextLine());
         }
         return array;
     }
