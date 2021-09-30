@@ -9,15 +9,15 @@ public class Book {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите название: ");
-        title = scanner.next();
+        Title.title = scanner.next();
         System.out.println();
         System.out.print("Введите автора: ");
-        author = scanner.next();
+        Author.author = scanner.next();
         System.out.println();
         System.out.print("Введите содержание: ");
-        content = scanner.next();
+        Content.content = scanner.next();
         System.out.println();
-        System.out.println("Название: "+ title + "\nАвтор: " + author + "\nСодержание: " + content);
+        System.out.println("Название: "+ Title.show() + "\nАвтор: " + Author.show() + "\nСодержание: " + Content.show());
     }
     static class Title{
         static String title = "";
