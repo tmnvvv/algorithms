@@ -28,7 +28,7 @@ public class Book {
     }
 
     public static void main(String[] args) {
-        Book book = new Book("Совершенный код","Стив Макгонал","...");
+        Book book = new Book("Совершенный код","Стив Макконнелл","...");
         book.show();
 
     }
